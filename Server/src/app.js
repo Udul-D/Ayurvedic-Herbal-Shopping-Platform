@@ -17,7 +17,7 @@ mongoose
 		console.log("Database Connection Succeeded 🔥");
 	})
 	.catch((err) => {
-		console.log("Database Connection Failed ❌ - Error: " + err);
+		console.log("Database Connection Failed ❌ : " + err);
 	});
 
 // middleware
