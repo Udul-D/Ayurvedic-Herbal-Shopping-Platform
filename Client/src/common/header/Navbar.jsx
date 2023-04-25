@@ -58,13 +58,20 @@ const Navbar = () => {
 										color: "white",
 										paddingLeft: "20px",
 										paddingRight: "20px",
-										paddingBottom: "20px",
-										height: "52px",
+										paddingBottom: "30px",
+										height: "53px",
 										fontSize: "14px",
 										borderRadius: "50px",
 										marginLeft: "100px",
 									}}>
-									Welcome {name} !
+									Welcome{" "}
+									<Link
+										to="#"
+										style={{ color: "white" }}>
+										<p className="account">
+											{name} !{" "}
+										</p>
+									</Link>
 								</li>
 							)}
 						</ul>
