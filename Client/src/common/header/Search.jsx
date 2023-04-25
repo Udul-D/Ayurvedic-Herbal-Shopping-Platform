@@ -9,7 +9,6 @@ const Search = ({ CartItem }) => {
 		search.classList.toggle("active", window.scrollY > 100);
 	});
 
-	const name = localStorage.getItem("FName");
 	const logged = localStorage.getItem("login");
 
 	const logout = async () => {
@@ -40,7 +39,7 @@ const Search = ({ CartItem }) => {
 					<div className="icon f_flex width">
 						{!logged ? (
 							<div className="btn-group btn-group-sm">
-								<Link to="/login">
+								<Link to="/auth/login">
 									<button
 										className="btn mt-2"
 										style={{
