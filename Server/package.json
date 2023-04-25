@@ -1,7 +1,7 @@
 {
-	"name": "backend",
+	"name": "ayurvedic-herbal-shopping-platform-server",
 	"version": "1.0.0",
-	"description": "Culture and Tourism Management System API",
+	"description": "Ayurvedic-Herbal-Shopping-Platform",
 	"main": "app.js",
 	"scripts": {
 		"start": "nodemon --exec babel-node src/app.js"
