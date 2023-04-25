@@ -1,5 +1,5 @@
 const bcryptjs = require("bcryptjs");
-const User = require("../../models/auth");
+const User = require("../../models/user");
 const JWT = require("jsonwebtoken");
 const LocalStorage = require("node-localstorage").LocalStorage;
 var localstorage = new LocalStorage("./scratch");
@@ -24,15 +24,18 @@ const register = async (req, res) => {
 			phoneNumber: req.body.phoneNumber,
 			nicType: req.body.nicType,
 			nic: req.body.nic,
-			country: req.body.country,
 			dob: req.body.dob,
 			gender: req.body.gender,
+			address: req.body.address,
 			password: hashPassword,
 		});
 
 		try {
 			newUser.save();
-			return res.status(200).json({ user: newUser });
+			return res.status(200).json({
+				user: newUser,
+				message: "User Registration Successfull !",
+			});
 		} catch (error) {
 			return res.status(400).json({ message: error });
 		}
@@ -65,8 +68,10 @@ const login = async (req, res) => {
 			const token = JWT.sign({ id }, process.env.SECRETE, {
 				expiresIn: process.env.EXPIREIN,
 			});
+
 			return res.status(200).json({
 				Login: true,
+				Role: userData.role,
 				message: "Login Successfull",
 				token,
 				userData,

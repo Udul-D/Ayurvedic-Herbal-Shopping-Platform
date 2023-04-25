@@ -87,7 +87,7 @@ function App() {
 
 	return (
 		<Router>
-			<Header CartItem={CartItem} />
+			<Header CartItem={CartItem} />{" "}
 			<Routes>
 				<Route
 					path="/"
@@ -102,8 +102,8 @@ function App() {
 				/>
 
 				<Route path="/cart" element={<Cart />} exact />
-				<Route path="/login" element={<Login />} exact />
-			</Routes>
+				<Route path="/auth/login" element={<Login />} exact />
+			</Routes>{" "}
 			<Footer />
 		</Router>
 	);

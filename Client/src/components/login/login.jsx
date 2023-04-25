@@ -25,16 +25,20 @@ const Login = () => {
 			await axios.post("api/auth/", data).then((res) => {
 				toast.success(res.data.message);
 				localStorage.setItem("login", true);
+				localStorage.setItem("_id", res.data.userData._id);
 				localStorage.setItem(
 					"FName",
 					res.data.userData.firstname +
 						" " +
 						res.data.userData.lastname,
 				);
-				setInterval(() => {
-					navigate("/");
-					window.location.reload();
-				}, 1700);
+
+				if (res.data.Role) {
+					setInterval(() => {
+						navigate("/");
+						window.location.reload();
+					}, 1700);
+				}
 			});
 		} catch (error) {
 			if (
@@ -78,7 +82,6 @@ const Login = () => {
 							</div>
 						</div>
 					</div>
-
 					<div className="col-md-6 right">
 						<div className="input-box">
 							<header
@@ -98,7 +101,7 @@ const Login = () => {
 										setEmail(e.target.value)
 									}
 								/>
-								<label for="email">Email</label>
+								<label for="email"> Email </label>
 							</div>
 							<div className="input-field">
 								<input
@@ -111,7 +114,7 @@ const Login = () => {
 										setPassword(e.target.value)
 									}
 								/>
-								<label for="password">Password</label>
+								<label for="password"> Password </label>
 							</div>
 							<div className="input-field">
 								<input
@@ -123,8 +126,8 @@ const Login = () => {
 							</div>
 							<div className="signin">
 								<span>
-									Don't have an account?{" "}
-									<a href="#"> Register</a>
+									Don 't have an account?
+									<a href="#"> Register </a>
 								</span>
 							</div>
 						</div>
