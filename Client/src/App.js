@@ -8,6 +8,9 @@ import Cart from "./common/Cart/Cart";
 import Footer from "./common/footer/Footer";
 import Sdata from "./components/shops/Sdata";
 import Login from "./components/login/login";
+import SellerDashboard from "./pages/SellerDashboard";
+import AddProduct from "./pages/AddProduct";
+import UpdateProduct from "./pages/UpdateProduct";
 
 function App() {
 	/*
@@ -103,6 +106,10 @@ function App() {
 
 				<Route path="/cart" element={<Cart />} exact />
 				<Route path="/auth/login" element={<Login />} exact />
+				<Route path='/seller' element={<SellerDashboard productItems={productItems} shopItems={shopItems} />}/>
+
+				<Route path='/addproduct' element={<AddProduct />}/>
+				<Route path='/edit/:id' element={<UpdateProduct />} />
 			</Routes>{" "}
 			<Footer />
 		</Router>

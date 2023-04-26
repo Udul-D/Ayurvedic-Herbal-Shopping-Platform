@@ -1,8 +1,10 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-
+import axios from "axios"
+import { toast } from "react-toastify"
+import { useNavigate } from 'react-router-dom';
 const SampleNextArrow = (props) => {
   const { onClick } = props
   return (
@@ -24,7 +26,39 @@ const SamplePrevArrow = (props) => {
   )
 }
 const FlashCard = ({ productItems, addToCart }) => {
+  const [open, setOpen] = React.useState(false);
+  let navigate = useNavigate()
   const [count, setCount] = useState(0)
+  const [product,setProduct] = React.useState([]);
+  const [productImage, setImage] = React.useState(false);
+  const [deleteId, setDeleteId]=useState();
+  const UpdateProduct =(id)=>{
+    navigate (`/edit/${id}`)
+  } 
+
+  const handleOpen = (Did) => {
+    setOpen(true);
+    setDeleteId(Did)
+  }
+  const handleClose = () => setOpen(false);
+  
+  useEffect(() => {
+  const getPrducts = async () => {
+    await axios
+      .get(
+        `http://localhost:5000/api/product/getAll`
+      )
+      .then((res) => {
+        console.log(res);
+        setProduct(res.data.data);
+      })
+      .catch((err) => {
+        console.log("🚀 ~ file: index.jsx:252 ~ getAllCategory ~ err", err.massage)
+      });
+  };
+    
+  getPrducts();
+});
   const increment = () => {
     setCount(count + 1)
   }
@@ -37,24 +71,53 @@ const FlashCard = ({ productItems, addToCart }) => {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   }
-
+  const handleDelete = async (did) => {
+    try {
+      const res = await axios.delete(
+        `http://localhost:5000/api/Product/delete/${did}`
+      );
+      console.log(res.data);
+      setOpen(false);
+      // toast.success(res.data.message, {
+      //   position: "top-right",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      // });
+    } catch (error) {
+      setOpen(false);
+      // toast.error(error.response.data.message, {
+      //   position: "top-right",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      // });
+    }
+  };
   return (
     <>
+      {/* <ToastContainer /> */}
       <Slider {...settings}>
-        {productItems.map((productItems) => {
+        {product.map((product) => {
           return (
             <div className='box'>
               <div className='product mtop'>
                 <div className='img'>
-                  <span className='discount'>{productItems.discount}% Off</span>
-                  <img src={productItems.cover} alt='' />
+                  <span className='discount'>20% Off</span>
+                  <img src={product.productImage} alt='' />
                   <div className='product-like'>
                     <label>{count}</label> <br />
                     <i className='fa-regular fa-heart' onClick={increment}></i>
                   </div>
                 </div>
                 <div className='product-details'>
-                  <h3>{productItems.name}</h3>
+                  <h3>{product.name}</h3>
                   <div className='rate'>
                     <i className='fa fa-star'></i>
                     <i className='fa fa-star'></i>
@@ -63,12 +126,15 @@ const FlashCard = ({ productItems, addToCart }) => {
                     <i className='fa fa-star'></i>
                   </div>
                   <div className='price'>
-                    <h4>${productItems.price}.00 </h4>
+                    <h4>${product.price}.00 </h4>
                     {/* step : 3  
                      if hami le button ma click garryo bahne 
                     */}
-                    <button onClick={() => addToCart(productItems)}>
-                      <i className='fa fa-plus'></i>
+                    <button onClick={() => UpdateProduct(product._id)}>
+                      <i className='fa fa-pencil'></i>
+                    </button>
+                    <button onClick={e=>handleDelete(product._id)}>
+                      <i className='fa fa-trash'></i>
                     </button>
                   </div>
                 </div>
@@ -77,6 +143,22 @@ const FlashCard = ({ productItems, addToCart }) => {
           )
         })}
       </Slider>
+      {/* <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+              You want delete this product
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                 <Button onClick={handleDelete}>Delete</Button>
+                 <Button onClick={handleClose}>Cancel</Button>
+          </Typography>
+        </Box>
+      </Modal> */}
     </>
   )
 }
