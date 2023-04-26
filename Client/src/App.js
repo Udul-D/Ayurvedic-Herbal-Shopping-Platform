@@ -104,7 +104,8 @@ function App() {
 					exact
 				/>
 
-				<Route path="/cart" element={<Cart />} exact />
+				<Route path="/cart" element={ <Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />
+} exact />
 				<Route path="/auth/login" element={<Login />} exact />
 				<Route path='/seller' element={<SellerDashboard productItems={productItems} shopItems={shopItems} />}/>
 
