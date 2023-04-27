@@ -25,65 +25,66 @@ const shippingController = {
         }
     },
 // get main category in the data base
-    // getMainCategory: async (req, res) => {
-
-    //     try {
-    //         const categories = await Category.find({ parent: { $exists: false } });
-    //         res.json({ message: "Category parent file fetch success", data: categories });
-    //     } catch (err) {
-    //         return res.status(500).json({ message: err.message });
-    //     }
-    // },
-// get sub category in the data base
-    // getSubCategory: async (req, res) => {
-        
-    //     try {
-
-    //         const subCategories = await Category.find({ parent: { $exists: true} });
-    //         res.json({ message: " Sub Category file fetch success", data: subCategories });
-    //     } catch (err) {
-    //         return res.status(500).json({ message: err.message });
-    //     }
-    // },
-    // getIdSubCategory: async (req, res) => {
-    //     const {parent} = req.body;
-    //     try {
-    //        const subCategories = await Category.find({parent:parent});
-    //         res.json({ message: " Sub Category file fetch success", data: subCategories });
-    //     } catch (err) {
-    //         return res.status(500).json({ message: err.message });
-    //     }
-    // },
+    getShippings: async (req, res) => {
+        try {
+        const shippings = await Shipping.find();
+        res.json({ message: "Products fetch success", data: shippings });
+        } catch (err) {
+        return res.status(500).json({ message: err.message });
+        }
+    },
 
 
 //get one category in the data base
+    // getOneShipping: async (req, res) => {
+    //     const id = req.params.id;
+    //     try {
+    //         const shipping = await Shipping.findOne({ _id: id });
+    //         res.json({ message: "Shipping fetch success", data: shipping });
+    //     } catch (err) {
+    //         return res.status(500).json({ message: err.message });
+    //     }
+    // },
+  
     getOneShipping: async (req, res) => {
         const id = req.params.id;
         try {
             const shipping = await Shipping.findOne({ _id: id });
-            res.json({ message: "Shipping fetch success", data: shipping });
+            res.json({ message: "Product fetch success", data: shipping });
         } catch (err) {
             return res.status(500).json({ message: err.message });
         }
     },
+
 //update category details
-    updateCategory: async (req, res) => {
+    updateShipping: async (req, res) => {
         const id = req.params.id;
-        const {name, parent,image} = req.body;
+        const { name, address, zip,mobile } = req.body;
 
         try {
-              await Category.findOneAndUpdate(
+              await Shipping.findOneAndUpdate(
                 { _id: id },
-                { name, parent, image }
+                {  name, address, zip,mobile  }
             );
             res.json({
                 message: "Forum post update success",
-                data: { name, parent, image },
+                data: {  name, address, zip,mobile  },
             });
         } catch (err) {
             return res.status(500).json({ message: err.message });
         }
     },
+
+    deleteShipping: async (req, res) => {
+        try {
+          const id = req.params.id;
+    
+          await Shipping.findByIdAndDelete({ _id: id });
+          res.json({ message: "delete success !" });
+        } catch (err) {
+          return res.status(500).json({ message: err.message });
+        }
+      },
 
 
 
