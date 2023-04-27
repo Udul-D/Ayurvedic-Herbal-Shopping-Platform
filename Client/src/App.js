@@ -8,8 +8,6 @@ import Cart from "./common/Cart/Cart";
 import Footer from "./common/footer/Footer";
 import Sdata from "./components/shops/Sdata";
 import Login from "./components/login/login";
-import Register from "./components/register/register";
-import "antd/dist/reset.css";
 
 function App() {
 	/*
@@ -102,13 +100,9 @@ function App() {
 					}
 					exact
 				/>
+
 				<Route path="/cart" element={<Cart />} exact />
 				<Route path="/auth/login" element={<Login />} exact />
-				<Route
-					path="/auth/register"
-					element={<Register />}
-					exact
-				/>
 			</Routes>{" "}
 			<Footer />
 		</Router>
