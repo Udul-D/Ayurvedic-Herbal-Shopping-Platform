@@ -11,10 +11,6 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Form from "react-bootstrap/Form";
 import PropTypes from 'prop-types';
-import SelectUnstyled, { selectUnstyledClasses } from '@mui/base/SelectUnstyled';
-import OptionUnstyled, { optionUnstyledClasses } from '@mui/base/OptionUnstyled';
-import OptionGroupUnstyled from '@mui/base/OptionGroupUnstyled';
-import PopperUnstyled from '@mui/base/PopperUnstyled';
 import {Button} from "@mui/material";
 import { styled } from '@mui/system';
 import { toast } from "react-toastify";
@@ -47,42 +43,42 @@ const grey = {
   900: "#24292f",
 };
 
-const StyledButton = styled("button")(
-  ({ theme }) => `
-  font-family: IBM Plex Sans, sans-serif;
-  font-size: 0.875rem;
-  box-sizing: border-box;
-  min-height: calc(1.5em + 22px);
-  min-width: 320px;
-  padding: 12px;
-  border-radius: 12px;
-  text-align: left;
-  line-height: 1.5;
-  background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
-  border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
-  color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 120ms;
-  &:hover {
-    background: ${theme.palette.mode === "dark" ? grey[800] : grey[50]};
-    border-color: ${theme.palette.mode === "dark" ? grey[600] : grey[300]};
-  }
-  &.${selectUnstyledClasses.focusVisible} {
-    border-color: ${blue[400]};
-    outline: 3px solid ${theme.palette.mode === "dark" ? blue[500] : blue[200]};
-  }
-  &.${selectUnstyledClasses.expanded} {
-    &::after {
-      content: '▴';
-    }
-  }
-  &::after {
-    content: '▾';
-    float: right;
-  }
-  `
-);
+// const StyledButton = styled("button")(
+//   ({ theme }) => `
+//   font-family: IBM Plex Sans, sans-serif;
+//   font-size: 0.875rem;
+//   box-sizing: border-box;
+//   min-height: calc(1.5em + 22px);
+//   min-width: 320px;
+//   padding: 12px;
+//   border-radius: 12px;
+//   text-align: left;
+//   line-height: 1.5;
+//   background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
+//   border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
+//   color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
+//   transition-property: all;
+//   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+//   transition-duration: 120ms;
+//   &:hover {
+//     background: ${theme.palette.mode === "dark" ? grey[800] : grey[50]};
+//     border-color: ${theme.palette.mode === "dark" ? grey[600] : grey[300]};
+//   }
+//   &.${selectUnstyledClasses.focusVisible} {
+//     border-color: ${blue[400]};
+//     outline: 3px solid ${theme.palette.mode === "dark" ? blue[500] : blue[200]};
+//   }
+//   &.${selectUnstyledClasses.expanded} {
+//     &::after {
+//       content: '▴';
+//     }
+//   }
+//   &::after {
+//     content: '▾';
+//     float: right;
+//   }
+//   `
+// );
 
 const StyledListbox = styled("ul")(
   ({ theme }) => `
@@ -104,36 +100,36 @@ const StyledListbox = styled("ul")(
   `
 );
 
-const StyledOption = styled(OptionUnstyled)(
-  ({ theme }) => `
-  list-style: none;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: default;
-  &:last-of-type {
-    border-bottom: none;
-  }
-  &.${optionUnstyledClasses.selected} {
-    background-color: ${theme.palette.mode === "dark" ? blue[900] : blue[100]};
-    color: ${theme.palette.mode === "dark" ? blue[100] : blue[900]};
-  }
-  &.${optionUnstyledClasses.highlighted} {
-    background-color: ${theme.palette.mode === "dark" ? grey[800] : grey[100]};
-    color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-  }
-  &.${optionUnstyledClasses.highlighted}.${optionUnstyledClasses.selected} {
-    background-color: ${theme.palette.mode === "dark" ? blue[900] : blue[100]};
-    color: ${theme.palette.mode === "dark" ? blue[100] : blue[900]};
-  }
-  &.${optionUnstyledClasses.disabled} {
-    color: ${theme.palette.mode === "dark" ? grey[700] : grey[400]};
-  }
-  &:hover:not(.${optionUnstyledClasses.disabled}) {
-    background-color: ${theme.palette.mode === "dark" ? grey[800] : grey[100]};
-    color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-  }
-  `
-);
+// const StyledOption = styled(OptionUnstyled)(
+//   ({ theme }) => `
+//   list-style: none;
+//   padding: 8px;
+//   border-radius: 8px;
+//   cursor: default;
+//   &:last-of-type {
+//     border-bottom: none;
+//   }
+//   &.${optionUnstyledClasses.selected} {
+//     background-color: ${theme.palette.mode === "dark" ? blue[900] : blue[100]};
+//     color: ${theme.palette.mode === "dark" ? blue[100] : blue[900]};
+//   }
+//   &.${optionUnstyledClasses.highlighted} {
+//     background-color: ${theme.palette.mode === "dark" ? grey[800] : grey[100]};
+//     color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
+//   }
+//   &.${optionUnstyledClasses.highlighted}.${optionUnstyledClasses.selected} {
+//     background-color: ${theme.palette.mode === "dark" ? blue[900] : blue[100]};
+//     color: ${theme.palette.mode === "dark" ? blue[100] : blue[900]};
+//   }
+//   &.${optionUnstyledClasses.disabled} {
+//     color: ${theme.palette.mode === "dark" ? grey[700] : grey[400]};
+//   }
+//   &:hover:not(.${optionUnstyledClasses.disabled}) {
+//     background-color: ${theme.palette.mode === "dark" ? grey[800] : grey[100]};
+//     color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
+//   }
+//   `
+// );
 
 const StyledGroupRoot = styled("li")`
   list-style: none;
@@ -158,60 +154,60 @@ const StyledGroupOptions = styled("ul")`
   }
 `;
 
-const StyledPopper = styled(PopperUnstyled)`
-  z-index: 1;
-`;
+// const StyledPopper = styled(PopperUnstyled)`
+//   z-index: 1;
+// `;
 
-function CustomSelect(props) {
-  const slots = {
-    root: StyledButton,
-    listbox: StyledListbox,
-    popper: StyledPopper,
-    ...props.slots,
-  };
+// function CustomSelect(props) {
+//   const slots = {
+//     root: StyledButton,
+//     listbox: StyledListbox,
+//     popper: StyledPopper,
+//     ...props.slots,
+//   };
 
-  return <SelectUnstyled {...props} slots={slots} />;
-}
+//   return <SelectUnstyled {...props} slots={slots} />;
+// }
 
-CustomSelect.propTypes = {
-  /**
-   * The components used for each slot inside the Select.
-   * Either a string to use a HTML element or a component.
-   * @default {}
-   */
-  slots: PropTypes.shape({
-    listbox: PropTypes.elementType,
-    popper: PropTypes.func,
-    root: PropTypes.elementType,
-  }),
-};
+// CustomSelect.propTypes = {
+//   /**
+//    * The components used for each slot inside the Select.
+//    * Either a string to use a HTML element or a component.
+//    * @default {}
+//    */
+//   slots: PropTypes.shape({
+//     listbox: PropTypes.elementType,
+//     popper: PropTypes.func,
+//     root: PropTypes.elementType,
+//   }),
+// };
 
-const CustomOptionGroup = React.forwardRef(function CustomOptionGroup(
-  props,
-  ref
-) {
-  const slots = {
-    root: StyledGroupRoot,
-    label: StyledGroupHeader,
-    list: StyledGroupOptions,
-    ...props.slots,
-  };
+// const CustomOptionGroup = React.forwardRef(function CustomOptionGroup(
+//   props,
+//   ref
+// ) {
+//   const slots = {
+//     root: StyledGroupRoot,
+//     label: StyledGroupHeader,
+//     list: StyledGroupOptions,
+//     ...props.slots,
+//   };
 
-  return <OptionGroupUnstyled {...props} ref={ref} slots={slots} />;
-});
+//   return <OptionGroupUnstyled {...props} ref={ref} slots={slots} />;
+// });
 
-CustomOptionGroup.propTypes = {
-  /**
-   * The components used for each slot inside the OptionGroupUnstyled.
-   * Either a string to use a HTML element or a component.
-   * @default {}
-   */
-  slots: PropTypes.shape({
-    label: PropTypes.elementType,
-    list: PropTypes.elementType,
-    root: PropTypes.elementType,
-  }),
-};
+// CustomOptionGroup.propTypes = {
+//   /**
+//    * The components used for each slot inside the OptionGroupUnstyled.
+//    * Either a string to use a HTML element or a component.
+//    * @default {}
+//    */
+//   slots: PropTypes.shape({
+//     label: PropTypes.elementType,
+//     list: PropTypes.elementType,
+//     root: PropTypes.elementType,
+//   }),
+// };
 
 export default function AddProduct() {
   const [category, setCategory] = React.useState([]);
@@ -512,7 +508,7 @@ export default function AddProduct() {
                     fontWeight: "bold",
                   }}
                 >
-                  Product Color
+                  Discription
                 </Typography>
               </Grid>
               <Grid
@@ -553,7 +549,7 @@ export default function AddProduct() {
                     fontWeight: "bold",
                   }}
                 >
-                  Product Sizes
+                  Product Availability
                 </Typography>
               </Grid>
               <Grid

@@ -130,13 +130,14 @@ const FlashCardUser = ({ productItems, addToCart }) => {
                     {/* step : 3  
                      if hami le button ma click garryo bahne 
                     */}
-                   <button onClick={() => addToCart(productItems)}>
+                    {/* <button onClick={() => UpdateProduct(product._id)}>
+                      <i className='fa fa-pencil'></i>
+                    </button> */}
+                   
+                   <button onClick={() => addToCart(product)}>
                       <i className='fa fa-plus'></i>
                     </button>
 
-                    {/* <button onClick={e=>handleDelete(product._id)}>
-                      <i className='fa fa-trash'></i>
-                    </button> */}
                   </div>
                 </div>
               </div>

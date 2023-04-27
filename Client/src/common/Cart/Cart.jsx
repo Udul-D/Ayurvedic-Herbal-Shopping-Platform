@@ -22,7 +22,7 @@ const Cart = ({ CartItem, addToCart, decreaseQty }) => {
               return (
                 <div className='cart-list product d_flex' key={item.id}>
                   <div className='img'>
-                    <img src={item.cover} alt='' />
+                    <img src={item.productImage} alt='' />
                   </div>
                   <div className='cart-details'>
                     <h3>{item.name}</h3>
@@ -62,7 +62,10 @@ const Cart = ({ CartItem, addToCart, decreaseQty }) => {
               <h4>Total Price :</h4>
               <h3>${totalPrice}.00</h3>
             </div>
+            <div><button className='btn-primary3' >New Customer's Orders</button></div>
           </div>
+          
+          
         </div>
       </section>
     </>
