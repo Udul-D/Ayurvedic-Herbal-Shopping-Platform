@@ -36,6 +36,7 @@ const FlashCard = ({ productItems, addToCart }) => {
     navigate (`/edit/${id}`)
   } 
 
+
   const handleOpen = (Did) => {
     setOpen(true);
     setDeleteId(Did)
@@ -46,7 +47,7 @@ const FlashCard = ({ productItems, addToCart }) => {
   const getPrducts = async () => {
     await axios
       .get(
-        `http://localhost:5001/api/product/getAll`
+        `http://localhost:5003/api/product/getAll`
       )
       .then((res) => {
         console.log(res);
@@ -74,7 +75,7 @@ const FlashCard = ({ productItems, addToCart }) => {
   const handleDelete = async (did) => {
     try {
       const res = await axios.delete(
-        `http://localhost:5000/api/Product/delete/${did}`
+        `http://localhost:5003/api/Product/delete/${did}`
       );
       console.log(res.data);
       setOpen(false);

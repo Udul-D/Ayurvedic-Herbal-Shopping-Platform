@@ -191,11 +191,8 @@ export default function UpdateProduct() {
   const productId = params.id;
   console.log("🚀 ~ file: index.jsx:192 ~ UpdateProduct ~ productId:", productId)
   const [parent,setParent] = React.useState();
-  console.log("🚀 ~ file: index.jsx:191 ~ UpdateProduct ~ parent", parent)
   const [mainCategory,setMainCategory] = React.useState([]);
-  console.log("🚀 ~ file: index.jsx:193 ~ UpdateProduct ~ mainCategory", mainCategory)
   const [category, setCategory] = React.useState([]);
-  console.log("🚀 ~ file: index.jsx:191 ~ UpdateProduct ~ category", category)
   const [image, setImage] = React.useState(false);
   const [isMen, setIsMen] = React.useState(false);
   const [product, setProduct] = React.useState({
@@ -211,14 +208,14 @@ export default function UpdateProduct() {
   console.log("🚀 ~ file: index.jsx:208 ~ UpdateProduct ~ product", product)
   async function fetchData() {
     const response = await axios.get(
-      `http://localhost:5000/api/product/get/${productId}`
+      `http://localhost:5003/api/product/get/${productId}`
     );
     setProduct(response.data.data);
   }
   const getMainCategory = async () => {
     await axios
       .get(
-        `http://localhost:5000/api/MainCategory/`
+        `http://localhost:5003/api/MainCategory/`
       )
       .then((res) => {
         console.log(res);
@@ -231,7 +228,7 @@ export default function UpdateProduct() {
   const getAllCategory = async () => {
     await axios
       .post(
-        `http://localhost:5000/api/IdSubCategory/`,{parent:parent}
+        `http://localhost:5003/api/IdSubCategory/`,{parent:parent}
       )
       .then((res) => {
         console.log(res);

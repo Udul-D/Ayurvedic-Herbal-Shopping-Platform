@@ -12,6 +12,9 @@ import SellerDashboard from "./pages/SellerDashboard";
 import AddProduct from "./pages/AddProduct";
 import UpdateProduct from "./pages/UpdateProduct";
 import AddPayment from "./pages/AddPayment";
+import AdminDashboard from "./pages/AdminDashboard";
+import OrdersTable from "./pages/NewOrders";
+import ProductDetails from "./pages/ProductDetails";
 // import AddPayment from "./pages/AddPayment";
 
 function App() {
@@ -110,11 +113,12 @@ function App() {
 } exact />
 				<Route path="/auth/login" element={<Login />} exact />
 				<Route path='/seller' element={<SellerDashboard productItems={productItems} shopItems={shopItems} />}/>
-
 				<Route path='/addproduct' element={<AddProduct />}/>
 				<Route path='/edit/:id' element={<UpdateProduct />} />
 				<Route path='/addPayment' element={<AddPayment />} CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty}/>
-				{/* <Route path='/productShipping' element={</>}/> */}
+				<Route path='/admin' element={<AdminDashboard productItems={productItems} shopItems={shopItems}/>}/>
+				<Route path='/newOrders' element={<OrdersTable/>} />
+				{/* <Route path='/productDetails/:id' element={<ProductDetails/>}/> */}
 			</Routes>{" "}
 			<Footer />
 		</Router>
