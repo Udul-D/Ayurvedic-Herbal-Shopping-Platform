@@ -7,13 +7,13 @@ import Discount from "../components/discount/Discount"
 import Shop from "../components/shops/Shop"
 import Annocument from "../components/annocument/Annocument"
 import Wrapper from "../components/wrapper/Wrapper"
-import FlashDealsUser from "../components/flashDeals/FlashDealsUser"
+import SellerHome from "../components/SellerMainPage/Home"
 
-const Pages = ({ productItems, addToCart, CartItem, shopItems }) => {
+const SellerDashboard = ({ productItems, addToCart, CartItem, shopItems }) => {
   return (
     <>
-      <Home CartItem={CartItem} />
-      <FlashDealsUser productItems={productItems} addToCart={addToCart} />
+      <SellerHome CartItem={CartItem} />
+      <FlashDeals productItems={productItems} addToCart={addToCart} />
       <TopCate />
       <NewArrivals />
       <Discount />
@@ -24,4 +24,4 @@ const Pages = ({ productItems, addToCart, CartItem, shopItems }) => {
   )
 }
 
-export default Pages
+export default SellerDashboard

@@ -1,9 +1,29 @@
 import React from "react"
+import { useNavigate } from 'react-router-dom';
 import "./style.css"
+import apiConfig from "../../services/api";
 
 const Cart = ({ CartItem, addToCart, decreaseQty }) => {
+  let navigate = useNavigate()
+  const shippingForm =(id)=>{
+    navigate (`/addPayment`)
+  } 
+
   // Stpe: 7   calucate total of items
   const totalPrice = CartItem.reduce((price, item) => price + item.qty * item.price, 0)
+
+  const sendPaymentData = async () => {
+    console.log("clicked")
+    const response = await apiConfig.post(`/payment/create`, {
+      cartItems: CartItem,
+    })
+    console.log(response.data.url)
+    window.location.href = response.data.url;
+    return response.data
+  }
+
+
+
 
   // prodcut qty total
   return (
@@ -22,13 +42,13 @@ const Cart = ({ CartItem, addToCart, decreaseQty }) => {
               return (
                 <div className='cart-list product d_flex' key={item.id}>
                   <div className='img'>
-                    <img src={item.cover} alt='' />
+                    <img src={item.productImage} alt='' />
                   </div>
                   <div className='cart-details'>
                     <h3>{item.name}</h3>
                     <h4>
-                      ${item.price}.00 * {item.qty}
-                      <span>${productQty}.00</span>
+                      Rs{item.price}.00 * {item.qty}
+                      <span>Rs{productQty}.00</span>
                     </h4>
                   </div>
                   <div className='cart-items-function'>
@@ -60,9 +80,12 @@ const Cart = ({ CartItem, addToCart, decreaseQty }) => {
             <h2>Cart Summary</h2>
             <div className=' d_flex'>
               <h4>Total Price :</h4>
-              <h3>${totalPrice}.00</h3>
+              <h3>Rs{totalPrice}.00</h3>
             </div>
+            <div><button className='btn-primary3' onClick={() => sendPaymentData()}>Next</button></div>
           </div>
+          
+          
         </div>
       </section>
     </>

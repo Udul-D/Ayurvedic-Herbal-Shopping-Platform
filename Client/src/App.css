@@ -18,10 +18,11 @@ body {
 .container {
   max-width: 90%;
   margin: auto;
+  justify-content: center;
 }
 .d_flex {
   display: flex;
-  justify-content: space-between;
+  justify-content:center;
 }
 .c_flex {
   display: flex;
@@ -162,6 +163,25 @@ button {
   width: 35px;
   height: 35px;
   border-radius: 5px;
+}
+.btn-primary2 {
+  background: #e94560;
+  padding: 13px 40px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 80%;
+  margin-bottom: 2%;
+}
+.btn-primary3 {
+  background: #e94560;
+  padding: 10px 40px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 18%;
+  margin-top: 8%;
+  margin-bottom: 8px;
 }
 .price button:hover {
   cursor: pointer;
