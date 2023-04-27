@@ -21,7 +21,7 @@ const register = async (req, res) => {
 			firstname: req.body.firstname,
 			lastname: req.body.lastname,
 			email: req.body.email,
-			phoneNumber: req.body.phoneNumber,
+			mobile: req.body.mobile,
 			nicType: req.body.nicType,
 			nic: req.body.nic,
 			dob: req.body.dob,
