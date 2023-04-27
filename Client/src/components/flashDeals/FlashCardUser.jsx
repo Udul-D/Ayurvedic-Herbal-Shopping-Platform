@@ -35,6 +35,10 @@ const FlashCardUser = ({ productItems, addToCart }) => {
   const UpdateProduct =(id)=>{
     navigate (`/edit/${id}`)
   } 
+   
+  const productDetails = (id) =>{
+    // navigate (`/productDetails/${id}`)
+  }
 
   const handleOpen = (Did) => {
     setOpen(true);
@@ -46,7 +50,7 @@ const FlashCardUser = ({ productItems, addToCart }) => {
   const getPrducts = async () => {
     await axios
       .get(
-        `http://localhost:5000/api/product/getAll`
+        `http://localhost:5001/api/product/getAll`
       )
       .then((res) => {
         console.log(res);
@@ -107,7 +111,7 @@ const FlashCardUser = ({ productItems, addToCart }) => {
         {product.map((product) => {
           return (
             <div className='box'>
-              <div className='product mtop'>
+              <div className='product mtop' onClick={productDetails()}>
                 <div className='img'>
                   <span className='discount'>20% Off</span>
                   <img src={product.productImage} alt='' />
@@ -126,7 +130,7 @@ const FlashCardUser = ({ productItems, addToCart }) => {
                     <i className='fa fa-star'></i>
                   </div>
                   <div className='price'>
-                    <h4>${product.price}.00 </h4>
+                    <h4>Rs{product.price}.00 </h4>
                     {/* step : 3  
                      if hami le button ma click garryo bahne 
                     */}

@@ -114,6 +114,7 @@ function App() {
 				<Route path='/addproduct' element={<AddProduct />}/>
 				<Route path='/edit/:id' element={<UpdateProduct />} />
 				<Route path='/addPayment' element={<AddPayment />} CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty}/>
+				{/* <Route path='/productShipping' element={</>}/> */}
 			</Routes>{" "}
 			<Footer />
 		</Router>

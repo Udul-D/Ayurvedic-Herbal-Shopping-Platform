@@ -1,4 +1,5 @@
 import Category from "../models/category.js";
+
 const categoryController = {
 //add category 
     createCategory: async (req, res) => {

@@ -46,7 +46,7 @@ const FlashCard = ({ productItems, addToCart }) => {
   const getPrducts = async () => {
     await axios
       .get(
-        `http://localhost:5000/api/product/getAll`
+        `http://localhost:5001/api/product/getAll`
       )
       .then((res) => {
         console.log(res);

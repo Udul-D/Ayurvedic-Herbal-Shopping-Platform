@@ -279,11 +279,12 @@ export default function AddPayment() {
     } else {
       try {
         const res = await axios.post(
-          "http://localhost:5000/api/product/create",
+          "http://localhost:5000/api/shipping/create",
           shipping
         );
         console.log(res);
         toast.success(res.data.message);
+        window.location.href = '/seller';
       } catch (err) {
         console.log(err);
         toast.error(err.response.data.message);
