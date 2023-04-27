@@ -33,9 +33,14 @@ const Login = () => {
 						res.data.userData.lastname,
 				);
 
-				if (res.data.Role) {
+				if (res.data.Role === "user") {
 					setInterval(() => {
 						navigate("/");
+						window.location.reload();
+					}, 1700);
+				} else if (res.data.Role === "admin") {
+					setInterval(() => {
+						navigate("/auth/register");
 						window.location.reload();
 					}, 1700);
 				}
@@ -127,7 +132,7 @@ const Login = () => {
 							<div className="signin">
 								<span>
 									Don 't have an account?
-									<a href="#"> Register </a>
+									<a href="/auth/register"> Register </a>
 								</span>
 							</div>
 						</div>
