@@ -11,6 +11,7 @@ import Login from "./components/login/login";
 import SellerDashboard from "./pages/SellerDashboard";
 import AddProduct from "./pages/AddProduct";
 import UpdateProduct from "./pages/UpdateProduct";
+import AddPayment from "./pages/AddPayment";
 // import AddPayment from "./pages/AddPayment";
 
 function App() {
@@ -112,7 +113,7 @@ function App() {
 
 				<Route path='/addproduct' element={<AddProduct />}/>
 				<Route path='/edit/:id' element={<UpdateProduct />} />
-				{/* <Route path='/addPayment' element={<AddPayment />} CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty}/> */}
+				<Route path='/addPayment' element={<AddPayment />} CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty}/>
 			</Routes>{" "}
 			<Footer />
 		</Router>
