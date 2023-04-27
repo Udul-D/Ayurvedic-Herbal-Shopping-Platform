@@ -1,8 +1,9 @@
 import React from "react"
 import FlashCard from "./FlashCard"
 import "./style.css"
+import FlashCardUser from "./FlashCardUser"
 
-const FlashDeals = ({ productItems, addToCart }) => {
+const FlashDealsUser = ({ productItems, addToCart }) => {
   return (
     <>
       <section className='flash'>
@@ -11,11 +12,11 @@ const FlashDeals = ({ productItems, addToCart }) => {
             <i className='fa fa-bolt'></i>
             <h1>Products</h1>
           </div>
-          <FlashCard productItems={productItems} addToCart={addToCart} />
+          <FlashCardUser productItems={productItems} addToCart={addToCart} />
         </div>
       </section>
     </>
   )
 }
 
-export default FlashDeals
+export default FlashDealsUser

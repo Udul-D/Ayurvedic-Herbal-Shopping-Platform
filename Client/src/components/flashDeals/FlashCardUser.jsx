@@ -25,7 +25,7 @@ const SamplePrevArrow = (props) => {
     </div>
   )
 }
-const FlashCard = ({ productItems, addToCart }) => {
+const FlashCardUser = ({ productItems, addToCart }) => {
   const [open, setOpen] = React.useState(false);
   let navigate = useNavigate()
   const [count, setCount] = useState(0)
@@ -35,6 +35,10 @@ const FlashCard = ({ productItems, addToCart }) => {
   const UpdateProduct =(id)=>{
     navigate (`/edit/${id}`)
   } 
+   
+  const productDetails = (id) =>{
+    // navigate (`/productDetails/${id}`)
+  }
 
   const handleOpen = (Did) => {
     setOpen(true);
@@ -107,7 +111,7 @@ const FlashCard = ({ productItems, addToCart }) => {
         {product.map((product) => {
           return (
             <div className='box'>
-              <div className='product mtop'>
+              <div className='product mtop' onClick={productDetails()}>
                 <div className='img'>
                   <span className='discount'>20% Off</span>
                   <img src={product.productImage} alt='' />
@@ -126,16 +130,18 @@ const FlashCard = ({ productItems, addToCart }) => {
                     <i className='fa fa-star'></i>
                   </div>
                   <div className='price'>
-                    <h4>${product.price}.00 </h4>
+                    <h4>Rs{product.price}.00 </h4>
                     {/* step : 3  
                      if hami le button ma click garryo bahne 
                     */}
-                    <button onClick={() => UpdateProduct(product._id)}>
+                    {/* <button onClick={() => UpdateProduct(product._id)}>
                       <i className='fa fa-pencil'></i>
+                    </button> */}
+                   
+                   <button onClick={() => addToCart(product)}>
+                      <i className='fa fa-plus'></i>
                     </button>
-                    <button onClick={e=>handleDelete(product._id)}>
-                      <i className='fa fa-trash'></i>
-                    </button>
+
                   </div>
                 </div>
               </div>
@@ -163,4 +169,4 @@ const FlashCard = ({ productItems, addToCart }) => {
   )
 }
 
-export default FlashCard
+export default FlashCardUser
