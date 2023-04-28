@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 import fileUpload from "express-fileupload";
 
+
+
 // Connect MongoDB.
 // const { connect } = mongoose;
 
@@ -55,7 +57,7 @@ app.use(
   })
 );
 
-const port = process.env.PORT || 5003;
+const port = process.env.PORT || 5002;
 
 app.listen(port, () => {
   `Server running on port ${port} 🔥`;
@@ -63,12 +65,14 @@ app.listen(port, () => {
 });
 
 //route imports
-import imageUploadRoute from "./routes/imageUploadRoute.js";
-import categoryImageRoute from "./routes/categoryImageRoute.js"
-import categoryRoute from "./routes/category.js";
-import productRoute from "./routes/product.js";
+// import imageUploadRoute from "./routes/imageUploadRoute.js";
+// import categoryImageRoute from "./routes/categoryImageRoute.js"
+// import categoryRoute from "./routes/category.js";
+import paymentRoute from "./routes/product.js";
+import shippingRoute from "./routes/shipping.js";
 // //routes
-app.use(categoryRoute); 
-app.use(productRoute);
-app.use("/api", imageUploadRoute); 
-app.use("/api", categoryImageRoute); 
+// app.use(categoryRoute); 
+app.use(paymentRoute);
+app.use(shippingRoute);
+// app.use("/api", imageUploadRoute); 
+// app.use("/api", categoryImageRoute); 

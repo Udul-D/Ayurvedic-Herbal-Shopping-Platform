@@ -5,21 +5,20 @@ shippingRoute.post(
     "/api/shipping/create",
     shippingController.createShipping
   );
-  shippingRoute.get(
-    "/api/product/getAll",
-    shippingController.getShippings
-  );
+  // productRoute.get(
+  //   "/api/product/getAll",
+  //   productController.getProducts
+  // );
   shippingRoute.get(
     "/api/shipping/get/:id",
     shippingController.getOneShipping
   );
-  
-  shippingRoute.put(
-    "/api/shipping/update/:id",
-    shippingController.updateShipping,
-  );
-  shippingRoute.delete(
-    "/api/Product/delete/:id",
-    shippingController.deleteShipping
-  );
+  // productRoute.put(
+  //   "/api/Product/update/:id",
+  //   productController.updateProduct
+  // );
+  // productRoute.delete(
+  //   "/api/Product/delete/:id",
+  //   productController.deleteProduct
+  // );
 export default shippingRoute
