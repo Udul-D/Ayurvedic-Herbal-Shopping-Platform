@@ -30,14 +30,31 @@ const register = async (req, res) => {
 			password: hashPassword,
 		});
 
-		try {
-			newUser.save();
-			return res.status(200).json({
-				user: newUser,
-				message: "User Registration Successfull !",
-			});
-		} catch (error) {
-			return res.status(400).json({ message: error });
+		if (
+			req.body.firstname === "" ||
+			req.body.lastname === "" ||
+			req.body.email === "" ||
+			req.body.mobile === "" ||
+			req.body.nicType === "" ||
+			req.body.nic === "" ||
+			req.body.dob === "" ||
+			req.body.gender === "" ||
+			req.body.address === "" ||
+			req.body.password === ""
+		) {
+			return res
+				.status(400)
+				.json({ message: "All the fields are required !" });
+		} else {
+			try {
+				newUser.save();
+				return res.status(200).json({
+					user: newUser,
+					message: "User Registration Successfull !",
+				});
+			} catch (error) {
+				return res.status(400).json({ message: error });
+			}
 		}
 	}
 };
@@ -51,7 +68,7 @@ const login = async (req, res) => {
 			message: "Invalid email address",
 		});
 	} else {
-		// decrypt password
+		// compare encrypted and entered passwords
 		const password = await bcryptjs.compare(
 			req.body.password,
 			userData.password,
@@ -64,18 +81,27 @@ const login = async (req, res) => {
 				message: "Incorrect Password !",
 			});
 		} else {
-			const id = userData.id;
-			const token = JWT.sign({ id }, process.env.SECRETE, {
-				expiresIn: process.env.EXPIREIN,
-			});
+			const isActive = userData.isActive;
 
-			return res.status(200).json({
-				Login: true,
-				Role: userData.role,
-				message: "Login Successfull",
-				token,
-				userData,
-			});
+			if (isActive) {
+				const id = userData.id;
+				const token = JWT.sign({ id }, process.env.SECRETE, {
+					expiresIn: process.env.EXPIREIN,
+				});
+
+				return res.status(200).json({
+					Login: true,
+					Role: userData.role,
+					message: "Login Successfull",
+					token,
+					userData,
+				});
+			} else {
+				return res.status(400).send({
+					Login: false,
+					message: "Account is not Activated !",
+				});
+			}
 		}
 	}
 };
