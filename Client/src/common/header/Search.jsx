@@ -1,8 +1,10 @@
 import React from "react";
 import logo from "../../components/assets/images/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Search = ({ CartItem }) => {
+	const navigate = useNavigate();
+
 	// fixed Header
 	window.addEventListener("scroll", function () {
 		const search = document.querySelector(".search");
@@ -14,6 +16,7 @@ const Search = ({ CartItem }) => {
 	const logout = async () => {
 		console.log("logout");
 		localStorage.clear();
+		navigate("/");
 		window.location.reload();
 	};
 
@@ -49,7 +52,7 @@ const Search = ({ CartItem }) => {
 										Login
 									</button>
 								</Link>
-								<Link to="/auth/register">
+								<Link to="/register">
 									<button
 										className="btn mt-2"
 										style={{

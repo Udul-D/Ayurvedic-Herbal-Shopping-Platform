@@ -21,7 +21,7 @@ const register = async (req, res) => {
 			firstname: req.body.firstname,
 			lastname: req.body.lastname,
 			email: req.body.email,
-			mobile: req.body.mobile,
+			phoneNumber: req.body.phoneNumber,
 			nicType: req.body.nicType,
 			nic: req.body.nic,
 			dob: req.body.dob,
@@ -30,14 +30,31 @@ const register = async (req, res) => {
 			password: hashPassword,
 		});
 
-		try {
-			newUser.save();
-			return res.status(200).json({
-				user: newUser,
-				message: "User Registration Successfull !",
-			});
-		} catch (error) {
-			return res.status(400).json({ message: error });
+		if (
+			req.body.firstname === "" ||
+			req.body.lastname === "" ||
+			req.body.email === "" ||
+			req.body.mobile === "" ||
+			req.body.nicType === "" ||
+			req.body.nic === "" ||
+			req.body.dob === "" ||
+			req.body.gender === "" ||
+			req.body.address === "" ||
+			req.body.password === ""
+		) {
+			return res
+				.status(400)
+				.json({ message: "All the fields are required !" });
+		} else {
+			try {
+				newUser.save();
+				return res.status(200).json({
+					user: newUser,
+					message: "User Registration Successfull !",
+				});
+			} catch (error) {
+				return res.status(400).json({ message: error });
+			}
 		}
 	}
 };
