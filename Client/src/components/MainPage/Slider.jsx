@@ -13,10 +13,10 @@ const SliderHome = () => {
       <section className='homeSlide contentWidth'>
         <div className='container'>
           <SlideCard />
-
+          
         </div>
         <>
-        <button className='btn-primary2' onClick={handleClick}>Add New Product</button>
+        {/* <button className='btn-primary2' onClick={handleClick}>Add New Product</button> */}
         </>
       </section>
     </>
