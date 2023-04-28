@@ -39,9 +39,9 @@ const FlashCardUser = ({ productItems, addToCart }) => {
   // } 
    
   
-  const productDetails = (id) =>{
-    navigate (`/productDetails/${id}`)
-  }
+  // const productDetails = (id) =>{
+  //   navigate (`/productDetails/${id}`)
+  // }
 
   const handleOpen = (Did) => {
     setOpen(true);
@@ -115,7 +115,7 @@ const FlashCardUser = ({ productItems, addToCart }) => {
           return (
             <div className='box'>
               <div className='product mtop' >
-                <div className='img'   onClick={productDetails()} >
+                <div className='img'    >
                   <span className='discount'>20% Off</span>
                   <img src={product.productImage} alt='' />
                   <div className='product-like'>

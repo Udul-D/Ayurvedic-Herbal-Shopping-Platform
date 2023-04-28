@@ -13,7 +13,7 @@ shippingRoute.post(
     "/api/shipping/get/:id",
     shippingController.getOneShipping
   );
-
+  
   shippingRoute.put(
     "/api/shipping/update/:id",
     shippingController.updateShipping,
