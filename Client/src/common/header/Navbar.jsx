@@ -12,14 +12,41 @@ const Navbar = () => {
 		<>
 			<header className="header">
 				<div className="container d_flex">
-					<div className="catgrories d_flex">
-						<span
+					<div className="d_flex">
+						{/* <span
 							class="fa-solid fa-border-all"
 							style={{ fontSize: "18px" }}></span>
 						<h6 className="mt-2">
 							Categories
-							{/* <i className="fa fa-chevron-down"></i> */}
-						</h6>
+							<i className="fa fa-chevron-down"></i>
+						</h6> */}
+						<ul>
+							{!logged ? (
+								<li></li>
+							) : (
+								<li
+									style={{
+										backgroundColor: "#e94560",
+										color: "white",
+										paddingLeft: "40px",
+										paddingRight: "40px",
+										paddingBottom: "30px",
+										height: "53px",
+										fontSize: "14px",
+										borderRadius: "50px",
+										marginRight: "250px",
+									}}>
+									Welcome{" "}
+									<Link
+										to="#"
+										style={{ color: "white" }}>
+										<p className="account">
+											{name} !{" "}
+										</p>
+									</Link>
+								</li>
+							)}
+						</ul>
 					</div>
 
 					<div className="navlink">
@@ -49,31 +76,6 @@ const Navbar = () => {
 							<li>
 								<Link to="/contact">contact</Link>
 							</li>
-							{!logged ? (
-								<li></li>
-							) : (
-								<li
-									style={{
-										backgroundColor: "#e94560",
-										color: "white",
-										paddingLeft: "20px",
-										paddingRight: "20px",
-										paddingBottom: "30px",
-										height: "53px",
-										fontSize: "14px",
-										borderRadius: "50px",
-										marginLeft: "100px",
-									}}>
-									Welcome{" "}
-									<Link
-										to="#"
-										style={{ color: "white" }}>
-										<p className="account">
-											{name} !{" "}
-										</p>
-									</Link>
-								</li>
-							)}
 						</ul>
 
 						<button
