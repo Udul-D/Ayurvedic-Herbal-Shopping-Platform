@@ -32,13 +32,16 @@ const FlashCardUser = ({ productItems, addToCart }) => {
   const [product,setProduct] = React.useState([]);
   const [productImage, setImage] = React.useState(false);
   const [deleteId, setDeleteId]=useState();
-  const UpdateProduct =(id)=>{
-    navigate (`/edit/${id}`)
-  } 
+
+
+  // const UpdateProduct =(id)=>{
+  //   navigate (`/edit/${id}`)
+  // } 
    
-  const productDetails = (id) =>{
-    // navigate (`/productDetails/${id}`)
-  }
+  
+  // const productDetails = (id) =>{
+  //   navigate (`/productDetails/${id}`)
+  // }
 
   const handleOpen = (Did) => {
     setOpen(true);
@@ -50,7 +53,7 @@ const FlashCardUser = ({ productItems, addToCart }) => {
   const getPrducts = async () => {
     await axios
       .get(
-        `http://localhost:5001/api/product/getAll`
+        `http://localhost:5003/api/product/getAll`
       )
       .then((res) => {
         console.log(res);
@@ -78,7 +81,7 @@ const FlashCardUser = ({ productItems, addToCart }) => {
   const handleDelete = async (did) => {
     try {
       const res = await axios.delete(
-        `http://localhost:5000/api/Product/delete/${did}`
+        `http://localhost:5003/api/Product/delete/${did}`
       );
       console.log(res.data);
       setOpen(false);
@@ -111,8 +114,8 @@ const FlashCardUser = ({ productItems, addToCart }) => {
         {product.map((product) => {
           return (
             <div className='box'>
-              <div className='product mtop' onClick={productDetails()}>
-                <div className='img'>
+              <div className='product mtop' >
+                <div className='img'    >
                   <span className='discount'>20% Off</span>
                   <img src={product.productImage} alt='' />
                   <div className='product-like'>
