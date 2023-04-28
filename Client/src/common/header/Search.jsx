@@ -52,7 +52,7 @@ const Search = ({ CartItem }) => {
 										Login
 									</button>
 								</Link>
-								<Link to="/auth/register">
+								<Link to="/register">
 									<button
 										className="btn mt-2"
 										style={{
