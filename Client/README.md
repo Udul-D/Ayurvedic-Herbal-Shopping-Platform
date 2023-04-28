@@ -39,32 +39,50 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## How to contribute
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Fork the repo on Github :octocat:.
+2. Clone the project to your own machine. <br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+git clone https://github.com/<YOUR_USERNAME>/ITP-FronEnd.git
+```
 
-### Code Splitting
+3. Create a branch using the git checkout command.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+git checkout -b <your-new-branch-name>
+```
 
-### Analyzing the Bundle Size
+4. Stage your changes and commit with a meaningful commit message.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+git add .
+```
 
-### Making a Progressive Web App
+```
+git commit -m "<initial commit>"
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+5. Push your work back up to your fork. <br>
 
-### Advanced Configuration
+```
+git push origin <add-your-branch-name>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+6. Submit a pull request so that we can review your changes.
+   [Learn about creating pull request.](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
 
-### Deployment
+## Offical Documentations
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**React**
+-[Offical Documentation](https://reactjs.org/docs/getting-started.html)
 
-### `npm run build` fails to minify
+**React Router Dom**
+-[Offical Documentation](https://reactrouter.com/docs/en/v6/getting-started/installation)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Bootstrap CSS**
+-[Offical Documentation](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
+
+**Ant Design**
+-[Offical Documentation](https://ant.design/docs/react/introduce)

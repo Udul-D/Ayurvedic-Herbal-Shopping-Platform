@@ -2,7 +2,7 @@ const Data = {
   productItems: [
     {
       id: 1,
-      discount: 50,
+      discount: 70,
       cover: "./images/flash/flash-1.png",
       name: "Shoes",
       price: 100,
