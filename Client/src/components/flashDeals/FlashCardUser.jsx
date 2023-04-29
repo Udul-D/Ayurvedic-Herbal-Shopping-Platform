@@ -112,12 +112,13 @@ const FlashCardUser = ({ productItems, addToCart }) => {
       {/* <ToastContainer /> */}
       <Slider {...settings}>
         {product.map((product) => {
+          console.log("product map",product)
           return (
-            <div className='box'>
+            <div className='box' >
               <div className='product mtop' >
                 <div className='img'    >
                   <span className='discount'>20% Off</span>
-                  <img src={product.productImage} alt='' />
+                  <img src={product.productImage} alt='' onClick={()=>navigate(`/product/view/${product._id}`)}/>
                   <div className='product-like'>
                     <label>{count}</label> <br />
                     <i className='fa-regular fa-heart' onClick={increment}></i>
