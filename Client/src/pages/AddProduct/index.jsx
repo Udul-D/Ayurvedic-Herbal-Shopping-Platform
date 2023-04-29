@@ -232,7 +232,7 @@ export default function AddProduct() {
     const getMainCategory = async () => {
       await axios
         .get(
-          `http://localhost:5000/api/MainCategory/`
+          `http://localhost:5003/api/MainCategory/`
         )
         .then((res) => {
           console.log(res);
@@ -245,7 +245,7 @@ export default function AddProduct() {
     const getAllCategory = async () => {
       await axios
       .post(
-        `http://localhost:5000/api/IdSubCategory/`,{parent:parent}
+        `http://localhost:5003/api/IdSubCategory/`,{parent:parent}
       )
         .then((res) => {
           console.log(res);
@@ -276,7 +276,7 @@ export default function AddProduct() {
     } else {
       try {
         const res = await axios.post(
-          "http://localhost:5000/api/product/create",
+          "http://localhost:5003/api/product/create",
           product
         );
         console.log(res);
@@ -303,7 +303,7 @@ export default function AddProduct() {
       formData.append("file", file);
 
       const res = await axios.post(
-        "http://localhost:5000/api/categoryImageUpload",
+        "http://localhost:5003/api/categoryImageUpload",
         formData,
         {
           headers: {

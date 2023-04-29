@@ -7,13 +7,12 @@ const reviewController={
     // add item to the data base
     createReview: async (req, res) => {
         try {
-          console.log(req.body.cartItems);
-          const {rating ,discription} = req.body;
-            if (!rating || !discription )
+          const {rating ,description} = req.body;
+            if (!rating || !description )
             return res.status(400).json({ msg: "Please fill in all fields." });
 
             const newReview = new Review({
-              rating ,discription
+              rating ,description
             });
             console.log(newReview)
             await newReview.save();
@@ -44,10 +43,10 @@ const reviewController={
            
             // });
 
-            // res.json({
-            //     message:"Payent Added success",
-            //     data:newPayment,
-            // });
+            res.json({
+                message:"Rating Added success",
+                data:newReview,
+            });
         } catch (err) {
             return res.status(500).json({ message: err.message });
         }

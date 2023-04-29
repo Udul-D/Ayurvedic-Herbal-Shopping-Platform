@@ -4,11 +4,11 @@ const { Schema, model } = mongoose;
 const ReviewSchema = new Schema({
     
   rating: {
-    type: String,
+    type: Number,
    
   },
-     discription: {
-        type: Number,
+  description: {
+        type: String,
        
       },
       

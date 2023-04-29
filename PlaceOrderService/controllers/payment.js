@@ -32,7 +32,10 @@ const paymentController={
                   quantity: item.qty,
                 };
               }),
+             
+              billing_address_collection:"required",
               mode: "payment",
+             
               success_url: `http://localhost:3000/addPayment`,
               cancel_url: `http://localhost:3000/addPayment`,
               currency: "usd",
