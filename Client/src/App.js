@@ -128,12 +128,34 @@ function App() {
 					exact
 				/>
 				<Route path="/auth/login" element={<Login />} exact />
-				<Route path='/seller' element={<SellerDashboard productItems={productItems} shopItems={shopItems} />}/>
-				<Route path='/addproduct' element={<AddProduct />}/>
-				<Route path='/edit/:id' element={<UpdateProduct />} />
-				<Route path='/addPayment' element={<AddPayment />} CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty}/>
-				<Route path='/admin' element={<AdminDashboard productItems={productItems} shopItems={shopItems}/>}/>
-				<Route path='/newOrders' element={<OrdersTable/>} />
+				<Route
+					path="/seller"
+					element={
+						<SellerDashboard
+							productItems={productItems}
+							shopItems={shopItems}
+						/>
+					}
+				/>
+				<Route path="/addproduct" element={<AddProduct />} />
+				<Route path="/edit/:id" element={<UpdateProduct />} />
+				<Route
+					path="/addPayment"
+					element={<AddPayment />}
+					CartItem={CartItem}
+					addToCart={addToCart}
+					decreaseQty={decreaseQty}
+				/>
+				<Route
+					path="/admin"
+					element={
+						<AdminDashboard
+							productItems={productItems}
+							shopItems={shopItems}
+						/>
+					}
+				/>
+				<Route path="/newOrders" element={<OrdersTable />} />
 				{/* <Route path='/productDetails/:id' element={<ProductDetails/>}/> */}
 				<Route
 					path="/seller"
