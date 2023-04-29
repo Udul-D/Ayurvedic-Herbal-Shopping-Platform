@@ -40,8 +40,8 @@ app.listen(port, () => {
 	console.log(`Server running on port ${port} 🔥`);
 });
 
-import paymentRoute from "./routes/product.js";
+import reviewRoute from "./routes/review.js";
 import shippingRoute from "./routes/shipping.js";
 
-app.use(paymentRoute);
+app.use(reviewRoute);
 app.use(shippingRoute);
