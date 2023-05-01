@@ -302,7 +302,7 @@ const Register = () => {
 									<ConfigProvider
 										theme={{
 											token: {
-												colorPrimary: "#e94560",
+												colorPrimary: "#1b851f",
 											},
 										}}>
 										<Space
@@ -353,7 +353,7 @@ const Register = () => {
 								<ConfigProvider
 									theme={{
 										token: {
-											colorPrimary: "#e94560",
+											colorPrimary: "#1b851f",
 										},
 									}}>
 									<Radio.Group
@@ -369,7 +369,7 @@ const Register = () => {
 											justifyContent: "start",
 											alignItems: "start",
 											alignContent: " start",
-											color: "#e94560",
+											color: "#1b851f",
 										}}
 									/>
 								</ConfigProvider>

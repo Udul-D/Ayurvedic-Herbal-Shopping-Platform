@@ -24,7 +24,7 @@ export default function ProductReview() {
         } else {
           try {
             const res = await axios.post(
-              "http://localhost:5002/api/review/create",
+              "http://localhost:5005/api/review/create",
               review
             );
             console.log(res);

@@ -9,6 +9,7 @@ const {id} = useParams()
 const [product,setProduct] = useState(null)
 const [review,setReview] = useState(null)
 const [error,setError] = useState(null)
+const [open, setOpen] = React.useState(false);
 
 
 useEffect(()=>{
@@ -20,12 +21,42 @@ setProduct(response.data.data);
 },[id])
 //get review data
 useEffect(()=>{
-  axios.get(`http://localhost:5002/api/review/getAll`).then(response =>{
+  axios.get(`http://localhost:5005/api/review/getAll`).then(response =>{
     setReview(response.data.data);
   }).catch(error =>{
     setError(error.response.data);
   });
 },[])
+
+const handleDelete = async (id) => {
+  try {
+  axios.delete(
+      `http://localhost:5005/api/review/delete/${id}`
+    );
+    // console.log(data);
+    setOpen(false);
+    // toast.success(res.data.message, {
+    //   position: "top-right",
+    //   autoClose: 5000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    // });
+  } catch (error) {
+    setOpen(false);
+    // toast.error(error.response.data.message, {
+    //   position: "top-right",
+    //   autoClose: 5000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    // });
+  }
+}
 
 console.log("ssss",product)
 console.log(review)
@@ -63,10 +94,10 @@ console.log(review)
           <Grid item>
             <Grid container spacing={1}>
               <Grid item>
-                <Typography variant="inherit" sx={{color:"green"}}>Change</Typography>
+                {/* <Typography variant="inherit" sx={{color:"green"}}>Change</Typography> */}
               </Grid>
               <Grid item>
-                <Typography variant="inherit" sx={{color:"red"}}>Remove</Typography>
+                <Button variant="inherit" sx={{color:"red"}} onClick={() => handleDelete(id)}>Remove</Button>
               </Grid>
             </Grid>
           </Grid>

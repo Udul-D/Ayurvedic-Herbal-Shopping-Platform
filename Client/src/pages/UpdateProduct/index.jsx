@@ -265,7 +265,7 @@ export default function UpdateProduct() {
     } else {
       try {
         const res = await axios.put(
-          `http://localhost:5000/api/Product/update/${productId}`,
+          `http://localhost:5003/api/Product/update/${productId}`,
           product
         );
         console.log(res);
@@ -292,7 +292,7 @@ export default function UpdateProduct() {
       formData.append("file", file);
 
       const res = await axios.post(
-        "http://localhost:5000/api/categoryImageUpload",
+        "http://localhost:5003/api/categoryImageUpload",
         formData,
         {
           headers: {
@@ -371,9 +371,9 @@ export default function UpdateProduct() {
               fontWeight: "bold",
             }}
           >
-            update product
+            Update product
           </Typography>
-          <hr color="black" width="450px"></hr>
+          <hr color="black"></hr>
         </Box>
         <Grid
           container
@@ -556,86 +556,7 @@ export default function UpdateProduct() {
               </Grid>
             </Grid>
             <br />
-            {/* <Grid container direction="row" justifyContent="center">
-              <Grid
-                xs={4}
-                sx={{ background: "white" }}
-                container
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Typography
-                  padding={"3px"}
-                  variant="h7"
-                  gutterBottom
-                  sx={{
-                    background: "white",
-                    textAlign: "center",
-                    fontWeight: "bold",
-                  }}
-                >
-                  main Category Name
-                </Typography>
-              </Grid>
-              <Grid
-                xs={4}
-                sx={{ background: "white" }}
-                container
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="center"
-              >
-               <Select value="" onChange={mainHandleSelect}>
-                  {mainCategory.map((category,index) => (
-                      <MenuItem key={index} value={category._id}>
-                        {category.name}
-                      </MenuItem>
-                      ))}
-                
-            </Select>
-              </Grid>
-            </Grid> */}
-            <br />
-            {/* <Grid container direction="row" justifyContent="center">
-              <Grid
-                xs={4}
-                sx={{ background: "white" }}
-                container
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Typography
-                  padding={"3px"}
-                  variant="h7"
-                  gutterBottom
-                  sx={{
-                    background: "white",
-                    textAlign: "center",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Category Name
-                </Typography>
-              </Grid>
-              <Grid
-                xs={4}
-                sx={{ background: "white" }}
-                container
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="center"
-              >
-                <Select value="" onChange={handleSelect}>
-                  { category.map((category,index) => (
-                      <MenuItem key={index} value={category._id}>
-                        {category.name}
-                      </MenuItem>
-                      ))}
-                </Select>
-              </Grid>
-            </Grid> */}
+           
             <br />
             <Grid container direction="row" justifyContent="center">
               <Grid

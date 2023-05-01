@@ -16,16 +16,7 @@ const ProductSchema = new Schema({
       size: {
         type: String,
       },
-      // categories:{
-      //   type: mongoose.Schema.Types.ObjectId,
-      //   ref: 'Category'
-      // },
-  // gender: {
-  //   type: String
-  // },
-  // category: {
-  //   type: String
-  // },
+
   productImage:{
         type: String
       },
