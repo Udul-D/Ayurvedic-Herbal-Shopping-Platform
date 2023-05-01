@@ -16,7 +16,7 @@ const SliderHome = () => {
         </div>
         <>
         <button className='btn-primary2' onClick={handleClick}>Add New Product</button>
-          <button className='btn-primary2' onClick={handleClick}>New Customer's Orders</button>
+          <button className='btn-primary2' onClick={handleClick}>New Orders</button>
         </>
       </section>
     </>

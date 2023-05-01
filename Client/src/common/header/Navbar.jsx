@@ -26,7 +26,7 @@ const Navbar = () => {
 							) : (
 								<li
 									style={{
-										backgroundColor: "#e94560",
+										backgroundColor: "#1b851f",
 										color: "white",
 										paddingLeft: "40px",
 										paddingRight: "40px",
