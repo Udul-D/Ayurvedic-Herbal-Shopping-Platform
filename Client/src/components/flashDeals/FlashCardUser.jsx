@@ -124,9 +124,7 @@ const FlashCardUser = ({ productItems, addToCart }) => {
 										alt=""
 										className="img"
 										style={{
-											width: "270px",
-											height: "270px",
-											marginTop: "10px",
+											width: "250px",
 											objectFit: "contain",
 										}}
 										onClick={() =>

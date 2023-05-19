@@ -21,6 +21,8 @@ import Profile from "./components/profile/profile.jsx";
 import UserList from "./components/userList/userList";
 import "react-tooltip/dist/react-tooltip.css";
 import "antd/dist/reset.css";
+import Contact from "./common/contact/contact";
+import About from "./common/about/about";
 
 function App() {
 	/*
@@ -104,7 +106,7 @@ import UserList from './components/userList/userList';
 
 	return (
 		<Router>
-			<Header CartItem={CartItem} />
+			<Header CartItem={CartItem} />{" "}
 			<Routes>
 				<Route
 					path="/"
@@ -142,16 +144,16 @@ import UserList from './components/userList/userList';
 							shopItems={shopItems}
 						/>
 					}
-				/>
-				<Route path="/addproduct" element={<AddProduct />} />
-				<Route path="/edit/:id" element={<UpdateProduct />} />
+				/>{" "}
+				<Route path="/addproduct" element={<AddProduct />} />{" "}
+				<Route path="/edit/:id" element={<UpdateProduct />} />{" "}
 				<Route
 					path="/addPayment"
 					element={<AddPayment />}
 					CartItem={CartItem}
 					addToCart={addToCart}
 					decreaseQty={decreaseQty}
-				/>
+				/>{" "}
 				<Route
 					path="/admin"
 					element={
@@ -160,8 +162,8 @@ import UserList from './components/userList/userList';
 							shopItems={shopItems}
 						/>
 					}
-				/>
-				<Route path="/newOrders" element={<OrdersTable />} />
+				/>{" "}
+				<Route path="/newOrders" element={<OrdersTable />} />{" "}
 				<Route
 					path="/seller"
 					element={
@@ -170,42 +172,35 @@ import UserList from './components/userList/userList';
 							shopItems={shopItems}
 						/>
 					}
-				/>
-				<Route path="/addproduct" element={<AddProduct />} />
+				/>{" "}
+				<Route path="/addproduct" element={<AddProduct />} />{" "}
 				<Route
 					path="/product/view/:id"
 					element={<ProductView addToCart={addToCart} />}
 				/>
-				<Route path="/edit/:id" element={<UpdateProduct />} />
+				<Route path="/edit/:id" element={<UpdateProduct />} />{" "}
 				<Route
 					path="/addPayment"
 					element={<PaymentSuccessPage />}
 					CartItem={CartItem}
 					addToCart={addToCart}
 					decreaseQty={decreaseQty}
-				/>
-				<Route
-					path="/admin"
-					element={
-						<AdminDashboard
-							productItems={productItems}
-							shopItems={shopItems}
-						/>
-					}
-				/>
-				<Route path="/newOrders" element={<OrdersTable />} />
-				{/* <Route path='/productDetails/:id' element={<ProductDetails/>}/> */}
-				<Route path="/user/:id" element={<Profile />} />
+				/>{" "}
+				<Route path="/newOrders" element={<OrdersTable />} />{" "}
+				<Route path="/contact" element={<Contact />} />
+				<Route path="/about" element={<About />} />
+				{/* <Route path='/productDetails/:id' element={<ProductDetails/>}/> */}{" "}
+				<Route path="/user/:id" element={<Profile />} />{" "}
 				{login && role === "admin" ? (
 					<>
 						<Route
 							path="/admin/users"
 							element={<UserList />}
-						/>
+						/>{" "}
 					</>
 				) : (
-					<></>
-				)}
+					<> </>
+				)}{" "}
 			</Routes>{" "}
 			<Footer />
 		</Router>

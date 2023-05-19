@@ -366,6 +366,21 @@ const UserList = () => {
 										Admin
 									</span>
 								) : (
+									<></>
+								)}
+								{value.role === "supplier" ? (
+									<span
+										class="badge badge-success rounded-pill d-inline px-3"
+										id="role"
+										style={{
+											backgroundColor: `#04699c`,
+										}}>
+										Supplier
+									</span>
+								) : (
+									<></>
+								)}
+								{value.role === "user" ? (
 									<span
 										class="badge badge-success rounded-pill d-inline px-3"
 										id="role"
@@ -374,6 +389,8 @@ const UserList = () => {
 										}}>
 										User
 									</span>
+								) : (
+									<></>
 								)}
 							</td>
 							<td>
