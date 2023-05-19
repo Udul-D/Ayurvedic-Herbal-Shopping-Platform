@@ -26,10 +26,22 @@ const Search = ({ CartItem }) => {
 		});
 	};
 
+	const role = localStorage.getItem("role");
+
 	const id = localStorage.getItem("_id");
 
 	const profileNavigate = () => {
 		navigate("/user/" + id);
+	};
+
+	const redirectHome = () => {
+		if (role === "user") {
+			navigate("/");
+		} else if (role === "admin") {
+			navigate("/admin");
+		} else if (role === "supplier") {
+			navigate("/seller");
+		}
 	};
 
 	return (
@@ -40,7 +52,8 @@ const Search = ({ CartItem }) => {
 						<img
 							src={logo}
 							alt=""
-							style={{ width: "150px" }}
+							style={{ width: "150px", cursor: "pointer" }}
+							onClick={redirectHome}
 						/>
 					</div>
 

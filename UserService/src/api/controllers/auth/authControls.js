@@ -27,6 +27,7 @@ const register = async (req, res) => {
 			dob: req.body.dob,
 			gender: req.body.gender,
 			address: req.body.address,
+			role: req.body.role,
 			url: req.body.url,
 			password: hashPassword,
 		});

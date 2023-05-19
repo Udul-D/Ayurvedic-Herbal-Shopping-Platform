@@ -8,7 +8,11 @@ const Navbar = () => {
 	const name = localStorage.getItem("FName");
 	const logged = localStorage.getItem("login");
 
+	const role = localStorage.getItem("role");
+
 	const id = localStorage.getItem("_id");
+
+	console.log("role - ", role);
 
 	return (
 		<>
@@ -33,18 +37,47 @@ const Navbar = () => {
 							}
 							onClick={() => setMobileMenu(false)}>
 							{/*<ul className='link f_flex uppercase {MobileMenu ? "nav-links-MobileMenu" : "nav-links"} onClick={() => setMobileMenu(false)}'>*/}
-							<li>
-								<Link to="/">home</Link>
-							</li>
+							{role === "user" ? (
+								<li>
+									<Link to="/">home</Link>
+								</li>
+							) : (
+								<></>
+							)}
+
+							{role === "admin" ? (
+								<li>
+									<Link to="/admin">home</Link>
+								</li>
+							) : (
+								<></>
+							)}
+
+							{role === "supplier" ? (
+								<li>
+									<Link to="/seller">home</Link>
+								</li>
+							) : (
+								<></>
+							)}
+
+							{role === null ? (
+								<li>
+									<Link to="/">home</Link>
+								</li>
+							) : (
+								<></>
+							)}
+
 							<li>
 								<Link to="/about">About</Link>
 							</li>
 							<li>
 								<Link to="/contact">Contact</Link>
 							</li>
-							<li>
+							{/* <li>
 								<Link to="/products">Products</Link>
-							</li>
+							</li> */}
 							{!logged ? (
 								<li></li>
 							) : (
