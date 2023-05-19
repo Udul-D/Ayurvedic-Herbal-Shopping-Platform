@@ -38,7 +38,17 @@ const Login = () => {
 
 				if (res.data.Role === "admin") {
 					setInterval(() => {
+						navigate("/admin");
+						window.location.reload();
+					}, 1700);
+				} else if (res.data.Role === "user") {
+					setInterval(() => {
 						navigate("/");
+						window.location.reload();
+					}, 1700);
+				} else if (res.data.Role === "supplier") {
+					setInterval(() => {
+						navigate("/seller");
 						window.location.reload();
 					}, 1700);
 				}

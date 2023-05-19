@@ -17,6 +17,12 @@ const Register = () => {
 		{ label: "Female", value: "Female" },
 	];
 
+	const options1 = [
+		{ label: "User", value: "user" },
+		{ label: "Supplier", value: "supplier" },
+		{ label: "Admin", value: "admin" },
+	];
+
 	const initialValues = {
 		firstname: "",
 		lastname: "",
@@ -35,6 +41,7 @@ const Register = () => {
 	const [message, setMessage] = useState({});
 	const [isSubmit, setIsSubmit] = useState(false);
 	const [image, setImage] = useState(false);
+	const [userRole, setUserRole] = useState("user");
 
 	const login = localStorage.getItem("login");
 
@@ -48,6 +55,10 @@ const Register = () => {
 
 	const onChange = ({ target: { value } }) => {
 		setGender(value);
+	};
+
+	const onChange1 = ({ target: { value } }) => {
+		setUserRole(value);
 	};
 
 	const handleChange = (e) => {
@@ -77,6 +88,7 @@ const Register = () => {
 				gender: gender,
 				url: formValues.url,
 				address: formValues.address,
+				role: userRole,
 				password: formValues.password,
 			};
 
@@ -183,6 +195,8 @@ const Register = () => {
 	// 		setMessage(validate(formValues));
 	// 	}
 	// }, [message]);
+
+	const role = localStorage.getItem("role");
 
 	return (
 		<div className="wrapper">
@@ -349,7 +363,7 @@ const Register = () => {
 									<ConfigProvider
 										theme={{
 											token: {
-												colorPrimary: "#1b851f",
+												colorPrimary: "#e94560",
 											},
 										}}>
 										<Space
@@ -417,7 +431,7 @@ const Register = () => {
 								<ConfigProvider
 									theme={{
 										token: {
-											colorPrimary: "#1b851f",
+											colorPrimary: "#e94560",
 										},
 									}}>
 									<Radio.Group
@@ -433,11 +447,54 @@ const Register = () => {
 											justifyContent: "start",
 											alignItems: "start",
 											alignContent: " start",
-											color: "#1b851f",
+											color: "#e94560",
 										}}
 									/>
 								</ConfigProvider>
 							</div>
+							{/* user role */}
+							{role === "admin" ? (
+								<div className="input-box">
+									<label
+										for="gender"
+										style={{
+											display: "flex",
+											justifyContent: "start",
+											alignItems: "start",
+											alignContent: " start",
+											marginBottom: "10px",
+										}}>
+										{" "}
+										User Role{" "}
+									</label>
+									<ConfigProvider
+										theme={{
+											token: {
+												colorPrimary: "#e94560",
+											},
+										}}>
+										<Radio.Group
+											options={options1}
+											onChange={onChange1}
+											value={userRole}
+											name="gender"
+											optionType="button"
+											buttonStyle="solid"
+											style={{
+												marginBottom: "25px",
+												display: "flex",
+												justifyContent: "start",
+												alignItems: "start",
+												alignContent: " start",
+												color: "#e94560",
+											}}
+										/>
+									</ConfigProvider>
+								</div>
+							) : (
+								<></>
+							)}
+
 							{/* address */}
 							<div className="input-field">
 								<input

@@ -127,11 +127,11 @@ button {
 /*---------category----------*/
 
 .btn-primary {
-  background: #1b851f;
-  padding: 13px 40px;
-  font-weight: bold;
-  color: #fff;
-  border-radius: 5px;
+	background: #e94560;
+	padding: 13px 40px;
+	font-weight: bold;
+	color: #fff;
+	border-radius: 5px;
 }
 
 .top {
@@ -145,20 +145,18 @@ button {
 .heading i {
 	color: #e94560;
 	margin: 10px;
-  color: #1b851f;
-  margin: 10px;
 }
 
 .discount {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #1b851f;
-  padding: 3px 10px;
-  font-size: 12px;
-  border-radius: 50px;
-  color: #fff;
-  margin: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #e94560;
+	padding: 3px 10px;
+	font-size: 12px;
+	border-radius: 50px;
+	color: #fff;
+	margin: 10px;
 }
 
 /*---------product-----------*/
@@ -184,47 +182,47 @@ button {
 }
 
 .product .price {
-  display: flex;
-  justify-content: space-between;
-  color: #1b851f;
+	display: flex;
+	justify-content: space-between;
+	color: #e94560;
 }
 
 .price button {
-  background: none;
-  color: #1b851f;
-  font-size: 20px;
-  transition: 0.5s;
-  border: 1px solid rgb(3 0 71 / 9%);
-  width: 35px;
-  height: 35px;
-  border-radius: 5px;
+	background: none;
+	color: #e94560;
+	font-size: 20px;
+	transition: 0.5s;
+	border: 1px solid rgb(3 0 71 / 9%);
+	width: 35px;
+	height: 35px;
+	border-radius: 5px;
 }
 
 .btn-primary2 {
-  background: #1b851f;
-  padding: 13px 40px;
-  font-weight: bold;
-  color: #fff;
-  border-radius: 5px;
-  margin-left: 80%;
-  margin-bottom: 2%;
+	background: #e94560;
+	padding: 13px 40px;
+	font-weight: bold;
+	color: #fff;
+	border-radius: 5px;
+	margin-left: 80%;
+	margin-bottom: 2%;
 }
 
 .btn-primary3 {
-  background: #1b851f;
-  padding: 10px 40px;
-  font-weight: bold;
-  color: #fff;
-  border-radius: 5px;
-  margin-left: 18%;
-  margin-top: 8%;
-  margin-bottom: 8px;
+	background: #e94560;
+	padding: 10px 40px;
+	font-weight: bold;
+	color: #fff;
+	border-radius: 5px;
+	margin-left: 18%;
+	margin-top: 8%;
+	margin-bottom: 8px;
 }
 
 .price button:hover {
-  cursor: pointer;
-  background-color: #1b851f;
-  color: #fff;
+	cursor: pointer;
+	background-color: #e94560;
+	color: #fff;
 }
 
 .product-like {
@@ -287,9 +285,9 @@ button {
 
 .control-btn .prev:hover,
 .control-btn .next:hover {
-  background: #1b851f;
-  color: white;
-  cursor: pointer;
+	background: #e94560;
+	color: white;
+	cursor: pointer;
 }
 
 /*----- control btn -------*/
