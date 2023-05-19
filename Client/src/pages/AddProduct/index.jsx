@@ -520,7 +520,7 @@ export default function AddProduct() {
                 alignItems="center"
               >
                 <TextField
-                  label="Color"
+                  label="Description"
                   id="outlined-size-small"
                   defaultValue={product.color}
                   size="small"
@@ -549,7 +549,7 @@ export default function AddProduct() {
                     fontWeight: "bold",
                   }}
                 >
-                  Product Availability
+                  Product Quantity
                 </Typography>
               </Grid>
               <Grid
@@ -561,7 +561,7 @@ export default function AddProduct() {
                 alignItems="center"
               >
                 <TextField
-                  label="Size"
+                  label="Qty"
                   id="outlined-size-small"
                   defaultValue={product.size}
                   size="small"
@@ -728,9 +728,10 @@ export default function AddProduct() {
           alignItems="center"
         >
 
-          <Button variant="contained" onClick={onClickAdd}>
+          <Button variant="contained" className='btn-primary2' onClick={onClickAdd}>
             Add Product
           </Button>
+          
         </Grid>
       </Box>
     </div>

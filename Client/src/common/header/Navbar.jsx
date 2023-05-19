@@ -22,7 +22,6 @@ const Navbar = () => {
 							Categories
 							<i className="fa fa-chevron-down"></i>
 						</h6> */}
-						<ul></ul>
 					</div>
 
 					<div className="navlink">
