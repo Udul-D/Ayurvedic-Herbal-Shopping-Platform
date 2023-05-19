@@ -1,6 +1,8 @@
 import React from "react";
-import logo from "../../components/assets/images/logo.svg";
+import logo from "../../components/assets/images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
+import axios from "axios";
 
 const Search = ({ CartItem }) => {
 	const navigate = useNavigate();
@@ -13,11 +15,21 @@ const Search = ({ CartItem }) => {
 
 	const logged = localStorage.getItem("login");
 
+	const image = localStorage.getItem("image");
+
 	const logout = async () => {
-		console.log("logout");
-		localStorage.clear();
-		navigate("/");
-		window.location.reload();
+		await axios.post("api/auth/logout").then(() => {
+			console.log("logout");
+			localStorage.clear();
+			navigate("/");
+			window.location.reload();
+		});
+	};
+
+	const id = localStorage.getItem("_id");
+
+	const profileNavigate = () => {
+		navigate("/user/" + id);
 	};
 
 	return (
@@ -25,7 +37,11 @@ const Search = ({ CartItem }) => {
 			<section className="search">
 				<div className="container c_flex">
 					<div className="logo width ">
-						<img src={logo} alt="" />
+						<img
+							src={logo}
+							alt=""
+							style={{ width: "150px" }}
+						/>
 					</div>
 
 					<div
@@ -42,7 +58,7 @@ const Search = ({ CartItem }) => {
 					<div className="icon f_flex width">
 						{!logged ? (
 							<div className="btn-group btn-group-sm">
-								<Link to="/auth/login">
+								<Link to="/auth/login/">
 									<button
 										className="btn mt-2"
 										style={{
@@ -65,17 +81,26 @@ const Search = ({ CartItem }) => {
 							</div>
 						) : (
 							<div className="btn-group btn-group-sm">
-								<Link to="">
-									<button
-										className="btn mt-2"
-										style={{
-											backgroundColor: "#f3f5f9",
-											marginLeft: "10px",
-										}}
-										onClick={logout}>
-										LogOut
-									</button>
-								</Link>
+								<img
+									src={image}
+									alt="Avatar"
+									class="avatar"
+									onClick={profileNavigate}
+									data-tooltip-id="tooltip"
+									data-tooltip-content="Go to Profile"
+									data-tooltip-place="bottom"
+									style={{ objectFit: "cover" }}
+								/>
+
+								<button
+									className="btn mt-2"
+									style={{
+										backgroundColor: "#f3f5f9",
+										marginLeft: "10px",
+									}}
+									onClick={logout}>
+									LogOut
+								</button>
 							</div>
 						)}
 
@@ -91,6 +116,15 @@ const Search = ({ CartItem }) => {
 						</div>
 					</div>
 				</div>
+				<Tooltip
+					id="tooltip"
+					style={{
+						color: "#e94560",
+						zIndex: "10",
+						backgroundColor: "#e5e5e5",
+						fontSize: "12px",
+					}}
+				/>
 			</section>
 		</>
 	);

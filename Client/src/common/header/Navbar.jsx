@@ -8,6 +8,8 @@ const Navbar = () => {
 	const name = localStorage.getItem("FName");
 	const logged = localStorage.getItem("login");
 
+	const id = localStorage.getItem("_id");
+
 	return (
 		<>
 			<header className="header">
@@ -20,33 +22,6 @@ const Navbar = () => {
 							Categories
 							<i className="fa fa-chevron-down"></i>
 						</h6> */}
-						<ul>
-							{!logged ? (
-								<li></li>
-							) : (
-								<li
-									style={{
-										backgroundColor: "#1b851f",
-										color: "white",
-										paddingLeft: "40px",
-										paddingRight: "40px",
-										paddingBottom: "30px",
-										height: "53px",
-										fontSize: "14px",
-										borderRadius: "50px",
-										marginRight: "250px",
-									}}>
-									Welcome{" "}
-									<Link
-										to="#"
-										style={{ color: "white" }}>
-										<p className="account">
-											{name} !{" "}
-										</p>
-									</Link>
-								</li>
-							)}
-						</ul>
 					</div>
 
 					<div className="navlink">
@@ -62,20 +37,23 @@ const Navbar = () => {
 								<Link to="/">home</Link>
 							</li>
 							<li>
-								<Link to="/pages">pages</Link>
+								<Link to="/about">About</Link>
 							</li>
 							<li>
-								<Link to="/user">user account</Link>
+								<Link to="/contact">Contact</Link>
 							</li>
 							<li>
-								<Link to="/vendor">vendor account</Link>
+								<Link to="/products">Products</Link>
 							</li>
-							<li>
-								<Link to="/track">track my order</Link>
-							</li>
-							<li>
-								<Link to="/contact">contact</Link>
-							</li>
+							{!logged ? (
+								<li></li>
+							) : (
+								<li>
+									<Link to={`/user/${id}`}>
+										<p className="account">{name}</p>
+									</Link>
+								</li>
+							)}
 						</ul>
 
 						<button
